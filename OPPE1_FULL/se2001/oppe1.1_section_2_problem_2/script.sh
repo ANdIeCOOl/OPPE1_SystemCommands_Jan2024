@@ -8,8 +8,10 @@
 #done
 read -r input
 #echo $input
-a=$(date -d"2022-12-31"|cut -d" " -f 3)
-b=$(date -d"2022-12-31"|cut -d" " -f 2)
-c=$(date -d"2022-12-31"|cut -d" " -f 6)
-echo "$a $b $c"
+a=$(date -d"$input"|cut -d" " -f 3 2> /dev/null)
+b=$(date -d"$input"|cut -d" " -f 2 2> /dev/null)
+c=$(date -d"$input"|cut -d" " -f 6 2> /dev/null)
+if [[ $a && $b && $c ]]; then
+	echo "$a $b $c"
+ fi
 
